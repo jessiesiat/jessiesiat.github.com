@@ -32,6 +32,11 @@ h3, h4, h5, h6 {
   color:#494949;
 }
 
+a.post {
+  color: #5892AF;
+  font-weight: 600;
+}
+
 a {
   color:#39c;
   font-weight:400;
