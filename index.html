@@ -3,9 +3,10 @@ layout: default
 ---
 <section>
 
-  <h3>Welcome Greeting! :D</h3>
-  <p>This is where I gonna be blogging away everything I want to. Mostly would be about PHP and web development which is my primary passion when in front of a computer.</p>
-  <p>More to come soon! <3<3<3 </p>
+  {% for post in site.posts %}
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.content }}</p>
+  {% endfor %}
         
 </section>
 
