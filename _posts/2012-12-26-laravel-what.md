@@ -56,7 +56,7 @@ Laravel was created first by Taylor Otwell and now has some added cool members n
 
 And many other [contributors..](https://github.com/laravel/laravel/graphs/contributors)
 
-% if page.comments %
+{% if page.comments %}
 	
 	<div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -73,8 +73,8 @@ And many other [contributors..](https://github.com/laravel/laravel/graphs/contri
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
-	
-% endif %
+
+{% endif %}
 
 ------------------------------------------------------
 
