@@ -26,6 +26,8 @@ h1 {
 
 h2 {
   color:#393939;
+  padding: 2px 0 5px 0;
+  border-bottom: 1px solid #A8AFB6;
 }
 
 h3, h4, h5, h6 {
@@ -106,9 +108,10 @@ img {
 }
 
 header {
-  width:270px;
+  width:240px;
   float:left;
   position:fixed;
+  border-right: 1px solid #CAC4C4;
 }
 
 header ul {
@@ -170,7 +173,7 @@ header ul a strong {
 }
 
 section {
-  width:570px;
+  width:595px;
   float:right;
   padding-bottom:50px;
 }

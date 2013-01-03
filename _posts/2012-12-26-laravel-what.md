@@ -57,9 +57,6 @@ Laravel was created first by Taylor Otwell and now has some added cool members n
 And many other [contributors..](https://github.com/laravel/laravel/graphs/contributors)
 
 
-------------------------------------------------------
-
-
 
 
 
