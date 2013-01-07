@@ -5,6 +5,14 @@ root: ../../../
 
 {% for post in site.posts %}
   <h2><a href="{{ post.url }}" class="post">{{ post.title }}</a></h2>
+  <span class="date">{{ post.date | date: "%B %e, %Y" }}</span>
+  <!--<ul>
+    <li class="date">{{ post.date | date: "%B %e, %Y" }}</li>
+    <li class="tags">Categories:</li>
+    {% for cat in post.categories %}
+    <li class="category"><a href="/categories.html#{{cat}}">{{cat}}</a></li>
+    {% endfor %}
+  </ul>-->
   <p>{{ post.content }}</p>
 {% endfor %}
         

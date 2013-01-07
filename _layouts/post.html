@@ -28,7 +28,8 @@
 
       <section>
 	      <h2><a href="{{ post.url }}" class="post">{{ page.title }}</a></h2>
-	      {{ content }}
+        <span class="date">{{ page.date | date: "%B %e, %Y" }}</span>
+	      <p>{{ content }}</p>
       
         {% if page.comments %}
     
