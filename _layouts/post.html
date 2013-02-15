@@ -28,7 +28,15 @@
 
       <section>
 	      <h2><a href="{{ post.url }}" class="post">{{ page.title }}</a></h2>
-        <span class="date">{{ page.date | date: "%B %e, %Y" }}</span>
+        <div class="tags">
+        <ul>
+          <li class="date">{{ post.date | date: "%B %e, %Y" }}</li>
+          <li class="tags">Categories:</li>
+          {% for cat in post.categories %}
+          <li class="category"><a href="/categories.html#{{cat}}">{{cat}}</a></li>
+          {% endfor %}
+        </ul>
+        </div>
 	      <p>{{ content }}</p>
       
         {% if page.comments %}

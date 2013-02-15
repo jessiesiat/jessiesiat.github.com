@@ -269,11 +269,45 @@ footer {
 
 /* My added CSS here */
 
-span.date {
+.tags {
+  display: inline-block;
+  font-size: .9em;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
+
+.tags ul {
+  margin: 0;
+  padding: 0;
+}
+
+li.tags {
+  padding-left: 10px;
+}
+
+.tags ul li {
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #AAA;
+}
+
+.tags ul li.date {
   background: url(../images/date.png) no-repeat left center;
   display: inline;
   padding-left: 24px;
   padding-right: 10px;
-  font-size: .9em
   /*border-right: 1px solid #CCC;*/
 }
