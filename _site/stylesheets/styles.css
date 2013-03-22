@@ -111,7 +111,7 @@ header {
   width:240px;
   float:left;
   position:fixed;
-  border-right: 1px solid #CAC4C4;
+  /*border-right: 1px solid #CAC4C4;*/
 }
 
 header ul {

@@ -9,10 +9,6 @@ root: ../../../
   <div class="tags">
   <ul>
     <li class="date">{{ post.date | date: "%B %e, %Y" }}</li>
-    <li class="tags">Categories:</li>
-    {% for cat in post.categories %}
-    <li class="category"><a href="/categories.html#{{cat}}">{{cat}}</a></li>
-    {% endfor %}
   </ul>
   </div>
   <p>{{ post.content }}</p>

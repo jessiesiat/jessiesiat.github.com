@@ -16,7 +16,7 @@
     <div class="wrapper">
       <header>
         <h1><a href="http://jessiesiat.github.com/">Jessie Siat</a></h1>
-        <p>PHP, Web Development and so on..</p>
+        <p>Web Development and so on..</p>
         <p><a href="https://github.com/jessiesiat" title="View My Github Profile">
           View My Github Profile</a></p>
         <p class="view">Twitter <a href="https://twitter.com/jessiesiat">@jessiesiat</a>
@@ -30,11 +30,7 @@
 	      <h2><a href="{{ post.url }}" class="post">{{ page.title }}</a></h2>
         <div class="tags">
         <ul>
-          <li class="date">{{ post.date | date: "%B %e, %Y" }}</li>
-          <li class="tags">Categories:</li>
-          {% for cat in post.categories %}
-          <li class="category"><a href="/categories.html#{{cat}}">{{cat}}</a></li>
-          {% endfor %}
+          <li class="date">{{ page.date | date: "%B %e, %Y" }}</li>
         </ul>
         </div>
 	      <p>{{ content }}</p>

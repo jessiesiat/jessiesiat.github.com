@@ -2,9 +2,6 @@
 layout: post
 title: Laravel, What???
 comments: true
-categories: 
-	- laravel
-	- php
 ---
 
 Ok, so what about Laravel? Who is Laravel? :D 
