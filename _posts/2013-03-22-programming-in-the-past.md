@@ -12,13 +12,15 @@ To make the long story short! As part of our software design subject we are aske
 * Books about PHP and MySQL
 * Beleive in my own
 
+It has registration and authentication, blog, gallery, forum, messaging, and newsfeed where anyone can post there shoutout. I don't use any programming framework this time or CMS but native PHP coding and MySQL. 
+
 And I made it in almost three months of coding! Passed the defense of it and able to graduate :)
 
 Anyways thats not my point in here, as you can see in my list I use notepad as my primary editor of code, that is worst! No line number, code highlight, purely text. I am blind of any other opensource tools that I could had used during that time (there was even no suggestions from the instructor). Even though tools already exist that time just like dreamweaver or notepad++ for editor I just dont mind to use them. Whatever resource available on a typical machine is what I used. It was a big lost on me.
 
 It was only after a year and more that I was made aware on the usefullness of using tools and opensource software in any programming activity. There comes Github which is popular on promoting(in a way) opensource software, collaboration and more. Really cool evolution in the programming world which makes it more socialize. 
 
-And with that after three years of programming, I now have a completely different and perfect workflow working as a developer. And these are the tools or resources I have today, let me list that one again.
+And with that after three years of programming, I now have a completely different and more advance workflow working as a developer. And these are the tools or resources I have today, let me list that one again.
 
 * [Sublime Text](http://www.sublimetext.com/)
 * [Laravel PHP Framework](http://laravel.com/)
