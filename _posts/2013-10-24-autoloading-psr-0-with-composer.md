@@ -1,0 +1,108 @@
+---
+layout: post
+title: Autoloading PSR-0 with Composer
+tags: PSR-0,Composer
+comments: true
+---
+
+As a PHP developer you may have read about [PHP-FIG](http://www.php-fig.org/). It is a group of people working together in creating standards on how we write PHP code. PHP audience may opt to adopt what they are doing but that is not the aim as what the group say. But why not!
+
+One of the accepted standard is [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) on autoloading namespace class. You may ask how to implement this easily and the answer is [Composer](http://getcomposer.org/)!
+
+Just run this command and your ready to go!
+
+	php composer.phar dump-autoload
+
+Well use [Laravel](http://laravel.com/) here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let's now create a namespace class inside the app folder with this structure. 
+
+	/app
+		/Auto
+			/Load
+				Something.php
+		/commands
+		/config
+		/controllers
+		/database
+		/lang
+		/models
+		/start
+		/storage
+		/test
+		/views
+		filters.php
+		routes.php
+	/bootstrap
+	/public
+	/vendor
+	.
+	composer.json
+	.
+	.
+
+As you can see our added Class is:
+
+	app/Auto/Load/Something.php
+
+Say the content of our Class is this. Take a look at the namespace keyword on top.
+
+	<?php namespace Auto\Load;
+
+	class Something {
+
+		public function sayHi()
+		{
+			return 'Hello?';
+		}
+
+	}
+
+Ok now let's create a route inside our routes file utilizing the Class we have just created.
+
+	<?php
+
+	//routes.php
+
+	Route::get('load', function()
+	{
+		$my_class = new Auto\Load\Something;
+
+		return $my_class->sayHi();
+	});
+
+We will now update our composer.json to something like this:
+
+	{
+		"autoload": {
+			"psr-0": {
+				"Auto": "app/"
+			}
+		}
+	}
+
+In here we're saying to load using psr-0 anything under namespace Auto inside our app folder.
+
+Getting excited! lets look at it now in our browser(yourapp.com/load)
+
+	Class 'Auto\Load\Something' not found
+
+Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier. 
+
+	php composer.phar dump-autoload
+
+Now when we see it again in our browser it will return
+
+Hello?
+
+That's it! Pretty simple and I know experienced php developers are already aware of this very much but this post are for those who are to learn yet. Hope you discover something new today!
+
+
+
+
+
+
+
+
+
+
+
+

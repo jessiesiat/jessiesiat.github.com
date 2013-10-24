@@ -20,13 +20,107 @@
         <p><a href="https://github.com/jessiesiat" title="View My Github Profile">
           View My Github Profile</a></p>
         <p class="view">Twitter <a href="https://twitter.com/jessiesiat">@jessiesiat</a>
-        <br/>
-        <a href="https://twitter.com/jessiesiat" class="twitter-follow-button" data-show-count="false">Follow @jessiesiat</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </p>
       </header>
       <section>
       
+  <h2><a href="/2013/10/24/autoloading-psr-0-with-composer.html" class="post">Autoloading PSR-0 with Composer</a></h2>
+  <!--<span class="date">October 24, 2013</span>-->
+  <div class="tags">
+  <ul>
+    <li class="date">October 24, 2013</li>
+  </ul>
+  </div>
+  <p><p>As a PHP developer you may have read about <a href='http://www.php-fig.org/'>PHP-FIG</a>. It is a group of people working together in creating standards on how we write PHP code. PHP audience may opt to adopt what they are doing but that is not the aim as what the group say. But why not!</p>
+
+<p>One of the accepted standard is <a href='https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md'>PSR-0</a> on autoloading namespace class. You may ask how to implement this easily and the answer is <a href='http://getcomposer.org/'>Composer</a>!</p>
+
+<p>Just run this command and your ready to go!</p>
+
+<pre><code>php composer.phar dump-autoload</code></pre>
+
+<p>Well use <a href='http://laravel.com/'>Laravel</a> here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let&#8217;s now create a namespace class inside the app folder with this structure.</p>
+
+<pre><code>/app
+	/Auto
+		/Load
+			Something.php
+	/commands
+	/config
+	/controllers
+	/database
+	/lang
+	/models
+	/start
+	/storage
+	/test
+	/views
+	filters.php
+	routes.php
+/bootstrap
+/public
+/vendor
+.
+composer.json
+.
+.</code></pre>
+
+<p>As you can see our added Class is:</p>
+
+<pre><code>app/Auto/Load/Something.php</code></pre>
+
+<p>Say the content of our Class is this. Take a look at the namespace keyword on top.</p>
+
+<pre><code>&lt;?php namespace Auto\Load;
+
+class Something {
+
+	public function sayHi()
+	{
+		return &#39;Hello?&#39;;
+	}
+
+}</code></pre>
+
+<p>Ok now let&#8217;s create a route inside our routes file utilizing the Class we have just created.</p>
+
+<pre><code>&lt;?php
+
+//routes.php
+
+Route::get(&#39;load&#39;, function()
+{
+	$my_class = new Auto\Load\Something;
+
+	return $my_class-&gt;sayHi();
+});</code></pre>
+
+<p>We will now update our composer.json to something like this:</p>
+
+<pre><code>{
+	&quot;autoload&quot;: {
+		&quot;psr-0&quot;: {
+			&quot;Auto&quot;: &quot;app/&quot;
+		}
+	}
+}</code></pre>
+
+<p>In here we&#8217;re saying to load using psr-0 anything under namespace Auto inside our app folder.</p>
+
+<p>Getting excited! lets look at it now in our browser(yourapp.com/load)</p>
+
+<pre><code>Class &#39;Auto\Load\Something&#39; not found</code></pre>
+
+<p>Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier.</p>
+
+<pre><code>php composer.phar dump-autoload</code></pre>
+
+<p>Now when we see it again in our browser it will return</p>
+
+<p>Hello?</p>
+
+<p>That&#8217;s it! Pretty simple and I know experienced php developers are already aware of this very much but this post are for those who are to learn yet. Hope you discover something new today!</p></p>
+
   <h2><a href="/2013/03/22/programming-in-the-past.html" class="post">Programming in the Past</a></h2>
   <!--<span class="date">March 22, 2013</span>-->
   <div class="tags">
@@ -34,7 +128,7 @@
     <li class="date">March 22, 2013</li>
   </ul>
   </div>
-  <p><p>This post is gonna be about me programming in the past and maybe anyone could have the same experience as they start programming maybe during college schooling days.</p>
+  <p><p>This post is gonna be about me programming in the past and maybe anyone could have the same experience as they start programming during college days.</p>
 
 <p>To make the long story short! As part of our software design subject we are asked to create a software program.And I made an organization portal website and you know what these are the tools/resources I had during that time, let me list that one.</p>
 
@@ -46,13 +140,15 @@
 <li>Beleive in my own</li>
 </ul>
 
+<p>It has registration and authentication, blog, gallery, forum, messaging, and newsfeed where anyone can post there shoutout. I don&#8217;t use any programming framework this time or CMS but native PHP coding and MySQL.</p>
+
 <p>And I made it in almost three months of coding! Passed the defense of it and able to graduate :)</p>
 
-<p>Anyways thats not my point in here, as you can see in my list I use <code>notepad</code> as my primary editor of code, that is worst! No line number, code highlight, purely text. I am blind of any other opensource tools that I could had used during that time (there was even no suggestions from the instructor). Even though tools already exist that time just like dreamweaver or notepad++ for editor I just dont mind to use them. Whatever resource available on a typical machine is what I used. It was a big lost on me.</p>
+<p>Anyways thats not my point in here, as you can see in my list I use notepad as my primary editor of code, that is worst! No line number, code highlight, purely text. I am blind of any other opensource tools that I could had used during that time (there was even no suggestions from the instructor). Even though tools already exist that time just like dreamweaver or notepad++ for editor I just dont mind to use them. Whatever resource available on a typical machine is what I used. It was a big lost on me.</p>
 
 <p>It was only after a year and more that I was made aware on the usefullness of using tools and opensource software in any programming activity. There comes Github which is popular on promoting(in a way) opensource software, collaboration and more. Really cool evolution in the programming world which makes it more socialize.</p>
 
-<p>And with that after three years of programming, I now have a completely different and perfect workflow working as a developer. And these are the tools or resources I have today, let me list that one again.</p>
+<p>And with that after three years of programming, I now have a completely different and more advance workflow working as a developer. And these are the tools or resources I have today, let me list that one again.</p>
 
 <ul>
 <li><a href='http://www.sublimetext.com/'>Sublime Text</a></li>
@@ -142,7 +238,7 @@
   </div>
   <p><p>This is where I gonna be blogging away everything I want to. Mostly would be about PHP and web development which is my primary passion when in front of a computer.</p>
 
-<p>More to come soon! </p></p>
+<p>More to come soon!</p></p>
 
         
 

@@ -1,5 +1,5 @@
 # OS generated files #
-######################
+
 .DS_Store
 .DS_Store?
 ._*
@@ -10,5 +10,5 @@ ehthumbs.db
 Thumbs.db
 
 # Jekyll Generated #
-######################
+
 /_site
