@@ -1,1 +1,2 @@
 markdown_ext:  markdown,mkd,mkdn,md
+markdown: kramdown
