@@ -30,63 +30,66 @@
           <li class="date">December 26, 2012</li>
         </ul>
         </div>
-	      <p><p>Ok, so what about Laravel? Who is Laravel? :D</p>
+	      <p><p>Ok, so what about Laravel? Who is Laravel? :D </p>
 
-<p><a href='http://laravel.com/'>Laravel</a> is a PHP programming framework just like the popular <a href='http://rubyonrails.org/'>RoR</a> framework written in Ruby programming language.</p>
+<p><a href="http://laravel.com/">Laravel</a> is a PHP programming framework just like the popular <a href="http://rubyonrails.org/">RoR</a> framework written in Ruby programming language.</p>
 
-<p>It has taken the PHP community by storm and it is because of it&#8217;s cool developer friendly syntax and is up to date with the latest PHP version release. Let me list down what I love about Laravel.</p>
+<p>It has taken the PHP community by storm and it is because of it’s cool developer friendly syntax and is up to date with the latest PHP version release. 
+Let me list down what I love about Laravel. </p>
 
 <ul>
-<li>It has Fluent syntax</li>
-
-<li>and Eloquent ORM</li>
-
-<li>Based on latest PHP version release and component based (upcoming Laravel4)</li>
-
-<li>Community driven and with cool core developer leads</li>
+  <li>It has Fluent syntax</li>
+  <li>and Eloquent ORM</li>
+  <li>Based on latest PHP version release and component based (upcoming Laravel4)</li>
+  <li>Community driven and with cool core developer leads</li>
 </ul>
 
-<h3 id='fluent_syntax'>Fluent syntax</h3>
+<h3 id="fluent-syntax">Fluent syntax</h3>
 
-<p>Laravel has a fluent query builder for building SQL queries and working with the database. Don&#8217;t worry about SQL injection because it is protected upon and uses <a href='http://en.wikipedia.org/wiki/Prepared_statement'>prepared statements</a>. Query a table as easy with this syntax:</p>
+<p>Laravel has a fluent query builder for building SQL queries and working with the database. Don’t worry about SQL injection because it is protected upon and uses <a href="http://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a>. Query a table as easy with this syntax: </p>
 
-<pre><code>$query = DB::table(&#39;users&#39;);</code></pre>
+<pre><code>$query = DB::table('users');
+</code></pre>
 
-<p>Here were using <code>table</code> method inside the <code>DB</code> class of Laravel. With this you can now retrieve, insert, update, or delete records from &#8216;users&#8217; table.</p>
+<p>Here were using <code>table</code> method inside the <code>DB</code> class of Laravel. With this you can now retrieve, insert, update, or delete records from ‘users’ table.</p>
 
-<p>For further reading <a href='http://laravel.com/docs/database/fluent'>read here</a></p>
+<p>For further reading <a href="http://laravel.com/docs/database/fluent">read here</a></p>
 
-<h3 id='eloquent_orm'>Eloquent ORM</h3>
+<h3 id="eloquent-orm">Eloquent ORM</h3>
 
-<p>Laravel has the most advance PHP ORM(Object Relational Mapper) exists. All you need to do is to define a model for the table.</p>
+<p>Laravel has the most advance PHP ORM(Object Relational Mapper) exists. 
+All you need to do is to define a model for the table. </p>
 
-<pre><code>class User extends Eloquent {}</code></pre>
+<pre><code>class User extends Eloquent {}
+</code></pre>
 
 <p>Without defining anything inside the class, Eloquent assumes that:</p>
 
 <ul>
-<li>the table has a primary key named <em>id</em></li>
-
-<li>table name is the plural form of the model name</li>
+  <li>the table has a primary key named <em>id</em></li>
+  <li>table name is the plural form of the model name</li>
 </ul>
 
 <p>Now to find a record by its <em>id</em>:</p>
 
-<pre><code>$user = User::find(1);</code></pre>
+<pre><code>$user = User::find(1);
+</code></pre>
 
-<p>Getting excited! there&#8217;s more <a href='http://laravel.com/docs/database/eloquent'>here</a> for further reading.</p>
+<p>Getting excited! there’s more <a href="http://laravel.com/docs/database/eloquent">here</a> for further reading. </p>
 
-<h3 id='latest_php_and_component_based'>Latest PHP and Component Based</h3>
+<h3 id="latest-php-and-component-based">Latest PHP and Component Based</h3>
 
-<p>PHP has a great dramatic improvement since the release of PHP5 that&#8217;s why Laravel was born.</p>
+<p>PHP has a great dramatic improvement since the release of PHP5 that’s why Laravel was born.</p>
 
-<p>The upcoming release of Laravel4 will now be component based and will now utilize the tool <a href='http://getcomposer.org/'>Composer</a> as it&#8217;s dependency manager.</p>
+<p>The upcoming release of Laravel4 will now be component based and will now utilize the tool <a href="http://getcomposer.org/">Composer</a> as it’s dependency manager.</p>
 
-<h3 id='community_driven_and_with_cool_core_dev_leads'>Community driven and with cool core dev. leads</h3>
+<h3 id="community-driven-and-with-cool-core-dev-leads">Community driven and with cool core dev. leads</h3>
 
-<p>Laravel was created first by Taylor Otwell and now has some added cool members namely Dayle Rees, Eric Barnes, Ian Landsman, Jason Lewis and Shawn McCool.</p>
+<p>Laravel was created first by Taylor Otwell and now has some added cool members namely Dayle Rees, Eric Barnes, Ian Landsman, Jason Lewis and Shawn McCool. </p>
 
-<p>And many other <a href='https://github.com/laravel/laravel/graphs/contributors'>contributors..</a></p></p>
+<p>And many other <a href="https://github.com/laravel/laravel/graphs/contributors">contributors..</a></p>
+
+</p>
       
         
     

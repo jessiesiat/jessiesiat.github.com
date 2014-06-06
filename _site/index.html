@@ -24,6 +24,107 @@
       </header>
       <section>
       
+  <h2><a href="/2014/06/06/autoloading-psr-4-standard.html" class="post">Autoloading PSR-4 Standard</a></h2>
+  <!--<span class="date">June  6, 2014</span>-->
+  <div class="tags">
+  <ul>
+    <li class="date">June  6, 2014</li>
+  </ul>
+  </div>
+  <p><blockquote>
+  <p>Because I blog about PSR-0!</p>
+</blockquote>
+
+<p>Why new autoloading standard? </p>
+
+<p>The reason is to simplify the creation of directory structure. Let’s say I am creating a package <code>jessiesiat/magic</code> and we will use PSR-4 to autoload our classes.</p>
+
+<p>But first let us see on how it is done using PSR-0.</p>
+
+<h3 id="using-psr-0">Using PSR-0</h3>
+
+<p>starting with the composer.json</p>
+
+<pre><code>...
+{
+	"autoload": {
+		"psr-0": {
+			"JessieSiat\\Magic\\": "src/"
+		}
+	}
+}
+...
+</code></pre>
+
+<p>our directory structure would be - <em>pay attention to the hierarchy</em></p>
+
+<pre><code>/src
+	/JessieSiat
+		/Magic
+			Card.php
+/test
+..
+composer.json
+..
+</code></pre>
+
+<p>then our Card.php file definition</p>
+
+<pre><code>&lt;?php namespace Jessiesiat\Magic;
+
+class Card {
+
+	// function definition here
+
+}
+</code></pre>
+
+<p>Were done, our class ‘JessieSiat\Magic\Card’ now exists!</p>
+
+<p>At some point it is not neccessary to have that kind of directory structure. Why not define the classes directly under the <code>src/</code>, especially if you just need few classes. We can achieve that with PSR-4, using the same <code>namespace</code> as above. </p>
+
+<h3 id="using-psr-4">Using PSR-4</h3>
+
+<p>as said, this is how our directory looks like</p>
+
+<pre><code>/src
+	Card.php
+	..
+/test
+..
+composer.json
+..
+</code></pre>
+
+<p>our Card.php file definition would be the same - <em>see namespace keyword</em></p>
+
+<pre><code>&lt;?php namespace Jessiesiat\Magic;
+
+class Card {
+
+	// function definition here
+
+}
+</code></pre>
+
+<p>then our composer.json would be.</p>
+
+<pre><code>...
+{
+	"autoload": {
+		"psr-4": {
+			"JessieSiat\\Magic\\": "src"
+		}
+	}
+}
+...
+</code></pre>
+
+<p>After running <code>composer dump-autoload</code> our class ‘JessieSiat\Magic\Card’ now exists, simplifying our directory!</p>
+
+<p><em>More info <a href="http://seld.be/notes/psr-4-autoloading-support-in-composer">here</a></em></p>
+</p>
+
   <h2><a href="/2013/10/24/autoloading-psr-0-with-composer.html" class="post">Autoloading PSR-0 with Composer</a></h2>
   <!--<span class="date">October 24, 2013</span>-->
   <div class="tags">
@@ -31,15 +132,16 @@
     <li class="date">October 24, 2013</li>
   </ul>
   </div>
-  <p><p>As a PHP developer you may have read about <a href='http://www.php-fig.org/'>PHP-FIG</a>. It is a group of people working together in creating standards on how we write PHP code. PHP audience may opt to adopt what they are doing but that is not the aim as what the group say. But why not!</p>
+  <p><p>As a PHP developer you may have read about <a href="http://www.php-fig.org/">PHP-FIG</a>. It is a group of people working together in creating standards on how we write PHP code. PHP audience may opt to adopt what they are doing but that is not the aim as what the group say. But why not!</p>
 
-<p>One of the accepted standard is <a href='https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md'>PSR-0</a> on autoloading namespace class. You may ask how to implement this easily and the answer is <a href='http://getcomposer.org/'>Composer</a>!</p>
+<p>One of the accepted standard is <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a> on autoloading namespace class. You may ask how to implement this easily and the answer is <a href="http://getcomposer.org/">Composer</a>!</p>
 
 <p>Just run this command and your ready to go!</p>
 
-<pre><code>php composer.phar dump-autoload</code></pre>
+<pre><code>php composer.phar dump-autoload
+</code></pre>
 
-<p>Well use <a href='http://laravel.com/'>Laravel</a> here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let&#8217;s now create a namespace class inside the app folder with this structure.</p>
+<p>Well use <a href="http://laravel.com/">Laravel</a> here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let’s now create a namespace class inside the app folder with this structure. </p>
 
 <pre><code>/app
 	/Auto
@@ -63,11 +165,13 @@
 .
 composer.json
 .
-.</code></pre>
+.
+</code></pre>
 
 <p>As you can see our added Class is:</p>
 
-<pre><code>app/Auto/Load/Something.php</code></pre>
+<pre><code>app/Auto/Load/Something.php
+</code></pre>
 
 <p>Say the content of our Class is this. Take a look at the namespace keyword on top.</p>
 
@@ -77,53 +181,63 @@ class Something {
 
 	public function sayHi()
 	{
-		return &#39;Hello?&#39;;
+		return 'Hello?';
 	}
 
-}</code></pre>
+}
+</code></pre>
 
-<p>Ok now let&#8217;s create a route inside our routes file utilizing the Class we have just created.</p>
+<p>Ok now let’s create a route inside our routes file utilizing the Class we have just created.</p>
 
 <pre><code>&lt;?php
 
 //routes.php
 
-Route::get(&#39;load&#39;, function()
+Route::get('load', function()
 {
 	$my_class = new Auto\Load\Something;
 
 	return $my_class-&gt;sayHi();
-});</code></pre>
+});
+</code></pre>
 
 <p>We will now update our composer.json to something like this:</p>
 
 <pre><code>{
-	&quot;autoload&quot;: {
-		&quot;psr-0&quot;: {
-			&quot;Auto&quot;: &quot;app/&quot;
+	"autoload": {
+		"psr-0": {
+			"Auto": "app/"
 		}
 	}
-}</code></pre>
+}
+</code></pre>
 
-<p>In here we&#8217;re saying to load using psr-0 anything under namespace Auto inside our app folder.</p>
+<p>In here we’re saying to load using psr-0 anything under namespace Auto inside our app folder.</p>
 
 <p>Getting excited! lets look at it now in our browser(yourapp.com/load)</p>
 
-<pre><code>Class &#39;Auto\Load\Something&#39; not found</code></pre>
+<pre><code>Class 'Auto\Load\Something' not found
+</code></pre>
 
-<p>Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier.</p>
+<p>Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier. </p>
 
-<pre><code>php composer.phar dump-autoload</code></pre>
+<pre><code>php composer.phar dump-autoload
+</code></pre>
 
 <blockquote>
-<p>If not using <a href='http://laravel.com/'>Laravel</a> you may bootstrap the autoload file generated by composer with <code>require &#39;vendor/autoload.php&#39;;</code>. Else if using Laravel, Symphony, etc. then don&#8217;t sweet it, it is already bootstrap for you.</p>
+  <p>If not using <a href="http://laravel.com/">Laravel</a> you may bootstrap the 
+autoload file generated by composer with <code>require 'vendor/autoload.php';</code>.
+Else if using Laravel, Symphony, etc. then don’t sweat it, it is already 
+bootstrap for you!</p>
 </blockquote>
 
 <p>Now when we see it again in our browser it will return</p>
 
 <p>Hello?</p>
 
-<p>That&#8217;s it! Pretty simple and I know experienced php developers are already aware of this very much but this post are for those who are to learn yet. Hope you discover something new today!</p></p>
+<p>That’s it! Pretty simple and I know experienced php developers are already aware of this very much but this post are for those who are to learn yet. Hope you discover something new today!</p>
+
+</p>
 
   <h2><a href="/2013/03/22/programming-in-the-past.html" class="post">Programming in the Past</a></h2>
   <!--<span class="date">March 22, 2013</span>-->
@@ -137,36 +251,31 @@ Route::get(&#39;load&#39;, function()
 <p>To make the long story short! As part of our software design subject we are asked to create a software program.And I made an organization portal website and you know what these are the tools/resources I had during that time, let me list that one.</p>
 
 <ul>
-<li>Notepad (I dont use dreamweaver that time I dont know why?)</li>
-
-<li>Books about PHP and MySQL</li>
-
-<li>Beleive in my own</li>
+  <li>Notepad (I dont use dreamweaver that time I dont know why?)</li>
+  <li>Books about PHP and MySQL</li>
+  <li>Beleive in my own</li>
 </ul>
 
-<p>It has registration and authentication, blog, gallery, forum, messaging, and newsfeed where anyone can post there shoutout. I don&#8217;t use any programming framework this time or CMS but native PHP coding and MySQL.</p>
+<p>It has registration and authentication, blog, gallery, forum, messaging, and newsfeed where anyone can post there shoutout. I don’t use any programming framework this time or CMS but native PHP coding and MySQL. </p>
 
 <p>And I made it in almost three months of coding! Passed the defense of it and able to graduate :)</p>
 
 <p>Anyways thats not my point in here, as you can see in my list I use notepad as my primary editor of code, that is worst! No line number, code highlight, purely text. I am blind of any other opensource tools that I could had used during that time (there was even no suggestions from the instructor). Even though tools already exist that time just like dreamweaver or notepad++ for editor I just dont mind to use them. Whatever resource available on a typical machine is what I used. It was a big lost on me.</p>
 
-<p>It was only after a year and more that I was made aware on the usefullness of using tools and opensource software in any programming activity. There comes Github which is popular on promoting(in a way) opensource software, collaboration and more. Really cool evolution in the programming world which makes it more socialize.</p>
+<p>It was only after a year and more that I was made aware on the usefullness of using tools and opensource software in any programming activity. There comes Github which is popular on promoting(in a way) opensource software, collaboration and more. Really cool evolution in the programming world which makes it more socialize. </p>
 
 <p>And with that after three years of programming, I now have a completely different and more advance workflow working as a developer. And these are the tools or resources I have today, let me list that one again.</p>
 
 <ul>
-<li><a href='http://www.sublimetext.com/'>Sublime Text</a></li>
-
-<li><a href='http://laravel.com/'>Laravel PHP Framework</a></li>
-
-<li><a href='http://twitter.github.com/bootstrap/index.html'>Twitter Bootstrap</a> / <a href='http://foundation.zurb.com/'>Foundation</a></li>
-
-<li><a href='http://jquery.com/'>JQuery</a>, <a href='http://backbonejs.org/'>Backbonejs</a></li>
-
-<li><a href='http://net.tutsplus.com/'>Nettus+</a></li>
+  <li><a href="http://www.sublimetext.com/">Sublime Text</a></li>
+  <li><a href="http://laravel.com/">Laravel PHP Framework</a></li>
+  <li><a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a> / <a href="http://foundation.zurb.com/">Foundation</a></li>
+  <li><a href="http://jquery.com/">JQuery</a>, <a href="http://backbonejs.org/">Backbonejs</a></li>
+  <li><a href="http://net.tutsplus.com/">Nettus+</a></li>
 </ul>
 
-<p>Thats it! Lessons learn as we go along so just go on, continue with your passion and be happy!</p></p>
+<p>Thats it! Lessons learn as we go along so just go on, continue with your passion and be happy!</p>
+</p>
 
   <h2><a href="/2012/12/26/laravel-what.html" class="post">Laravel, What???</a></h2>
   <!--<span class="date">December 26, 2012</span>-->
@@ -175,63 +284,66 @@ Route::get(&#39;load&#39;, function()
     <li class="date">December 26, 2012</li>
   </ul>
   </div>
-  <p><p>Ok, so what about Laravel? Who is Laravel? :D</p>
+  <p><p>Ok, so what about Laravel? Who is Laravel? :D </p>
 
-<p><a href='http://laravel.com/'>Laravel</a> is a PHP programming framework just like the popular <a href='http://rubyonrails.org/'>RoR</a> framework written in Ruby programming language.</p>
+<p><a href="http://laravel.com/">Laravel</a> is a PHP programming framework just like the popular <a href="http://rubyonrails.org/">RoR</a> framework written in Ruby programming language.</p>
 
-<p>It has taken the PHP community by storm and it is because of it&#8217;s cool developer friendly syntax and is up to date with the latest PHP version release. Let me list down what I love about Laravel.</p>
+<p>It has taken the PHP community by storm and it is because of it’s cool developer friendly syntax and is up to date with the latest PHP version release. 
+Let me list down what I love about Laravel. </p>
 
 <ul>
-<li>It has Fluent syntax</li>
-
-<li>and Eloquent ORM</li>
-
-<li>Based on latest PHP version release and component based (upcoming Laravel4)</li>
-
-<li>Community driven and with cool core developer leads</li>
+  <li>It has Fluent syntax</li>
+  <li>and Eloquent ORM</li>
+  <li>Based on latest PHP version release and component based (upcoming Laravel4)</li>
+  <li>Community driven and with cool core developer leads</li>
 </ul>
 
-<h3 id='fluent_syntax'>Fluent syntax</h3>
+<h3 id="fluent-syntax">Fluent syntax</h3>
 
-<p>Laravel has a fluent query builder for building SQL queries and working with the database. Don&#8217;t worry about SQL injection because it is protected upon and uses <a href='http://en.wikipedia.org/wiki/Prepared_statement'>prepared statements</a>. Query a table as easy with this syntax:</p>
+<p>Laravel has a fluent query builder for building SQL queries and working with the database. Don’t worry about SQL injection because it is protected upon and uses <a href="http://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a>. Query a table as easy with this syntax: </p>
 
-<pre><code>$query = DB::table(&#39;users&#39;);</code></pre>
+<pre><code>$query = DB::table('users');
+</code></pre>
 
-<p>Here were using <code>table</code> method inside the <code>DB</code> class of Laravel. With this you can now retrieve, insert, update, or delete records from &#8216;users&#8217; table.</p>
+<p>Here were using <code>table</code> method inside the <code>DB</code> class of Laravel. With this you can now retrieve, insert, update, or delete records from ‘users’ table.</p>
 
-<p>For further reading <a href='http://laravel.com/docs/database/fluent'>read here</a></p>
+<p>For further reading <a href="http://laravel.com/docs/database/fluent">read here</a></p>
 
-<h3 id='eloquent_orm'>Eloquent ORM</h3>
+<h3 id="eloquent-orm">Eloquent ORM</h3>
 
-<p>Laravel has the most advance PHP ORM(Object Relational Mapper) exists. All you need to do is to define a model for the table.</p>
+<p>Laravel has the most advance PHP ORM(Object Relational Mapper) exists. 
+All you need to do is to define a model for the table. </p>
 
-<pre><code>class User extends Eloquent {}</code></pre>
+<pre><code>class User extends Eloquent {}
+</code></pre>
 
 <p>Without defining anything inside the class, Eloquent assumes that:</p>
 
 <ul>
-<li>the table has a primary key named <em>id</em></li>
-
-<li>table name is the plural form of the model name</li>
+  <li>the table has a primary key named <em>id</em></li>
+  <li>table name is the plural form of the model name</li>
 </ul>
 
 <p>Now to find a record by its <em>id</em>:</p>
 
-<pre><code>$user = User::find(1);</code></pre>
+<pre><code>$user = User::find(1);
+</code></pre>
 
-<p>Getting excited! there&#8217;s more <a href='http://laravel.com/docs/database/eloquent'>here</a> for further reading.</p>
+<p>Getting excited! there’s more <a href="http://laravel.com/docs/database/eloquent">here</a> for further reading. </p>
 
-<h3 id='latest_php_and_component_based'>Latest PHP and Component Based</h3>
+<h3 id="latest-php-and-component-based">Latest PHP and Component Based</h3>
 
-<p>PHP has a great dramatic improvement since the release of PHP5 that&#8217;s why Laravel was born.</p>
+<p>PHP has a great dramatic improvement since the release of PHP5 that’s why Laravel was born.</p>
 
-<p>The upcoming release of Laravel4 will now be component based and will now utilize the tool <a href='http://getcomposer.org/'>Composer</a> as it&#8217;s dependency manager.</p>
+<p>The upcoming release of Laravel4 will now be component based and will now utilize the tool <a href="http://getcomposer.org/">Composer</a> as it’s dependency manager.</p>
 
-<h3 id='community_driven_and_with_cool_core_dev_leads'>Community driven and with cool core dev. leads</h3>
+<h3 id="community-driven-and-with-cool-core-dev-leads">Community driven and with cool core dev. leads</h3>
 
-<p>Laravel was created first by Taylor Otwell and now has some added cool members namely Dayle Rees, Eric Barnes, Ian Landsman, Jason Lewis and Shawn McCool.</p>
+<p>Laravel was created first by Taylor Otwell and now has some added cool members namely Dayle Rees, Eric Barnes, Ian Landsman, Jason Lewis and Shawn McCool. </p>
 
-<p>And many other <a href='https://github.com/laravel/laravel/graphs/contributors'>contributors..</a></p></p>
+<p>And many other <a href="https://github.com/laravel/laravel/graphs/contributors">contributors..</a></p>
+
+</p>
 
   <h2><a href="/2012/12/21/welcome.html" class="post">Welcome Greeting! :D</a></h2>
   <!--<span class="date">December 21, 2012</span>-->
@@ -242,7 +354,8 @@ Route::get(&#39;load&#39;, function()
   </div>
   <p><p>This is where I gonna be blogging away everything I want to. Mostly would be about PHP and web development which is my primary passion when in front of a computer.</p>
 
-<p>More to come soon!</p></p>
+<p>More to come soon!</p>
+</p>
 
         
 
