@@ -24,6 +24,86 @@
       </header>
       <section>
       
+  <h2><a href="/2014/08/06/php-autoloading-classes.html" class="post">PHP Autoloading classes</a></h2>
+  <!--<span class="date">August  6, 2014</span>-->
+  <div class="tags">
+  <ul>
+    <li class="date">August  6, 2014</li>
+  </ul>
+  </div>
+  <p><p>At first I find autoloading a tricky thing to do, the way Composer does and frameworks but not anymore.
+Today I will share the secret on how classes are loaded on demand. </p>
+
+<p>You can actually gain access to a class by including them in your bootstrap file but what if we have a lot of files? This time we will do autoloading and bootstrap only the files needed for the whole whole request cycle.
+i.e.</p>
+
+<p><code>index.php</code></p>
+
+<pre><code>require 'bootstrap.php';
+
+// initialized class here and it will be autoloaded
+$foo = new Foo;
+$bar = new Bar;
+</code></pre>
+
+<p>Only the files needed for the whole request cycle to run will be bootstrap, others will be autoloaded on demand.</p>
+
+<p>Let’s not imagine, but let’s say this will be our working directory. Our target classes to be autolaoded will be under the services folder. </p>
+
+<pre><code>/project
+	/services
+		Foo.php
+		Bar.php
+		...
+	bootstrap.php
+	index.php
+</code></pre>
+
+<p>Let’s now reveal our <code>bootstrap.php</code> file.</p>
+
+<p><code>bootstrap.php</code></p>
+
+<pre><code>spl_autoload_register(function($class) {
+	if(file_exists($path = __DIR__.'/services/'.$class.'.php')) 
+	{
+		require_once $path;
+		return true;
+	}
+	return false;
+});
+</code></pre>
+
+<p>You can do your implementation within the callable but in our example our target directory is the services folder where our classes is located.</p>
+
+<p><code>spl_autoload_register</code> accepts a <a href="http://php.net/manual/en/language.types.callable.php">callable</a> as the first parameter.</p>
+
+<pre><code>/**
+ * @param callable $autoload_function 
+ * @param bool     $throw 	whether to throw exceptions when the autoload_function cannot be registered.
+ * @param bool     $prepend 	whether to prepend the autoloader on the autoload stack
+ */
+spl_autoload_register(callable $autoload_function, $throw = true, $prepend = false)
+</code></pre>
+
+<p>Another way to do autoloading is the <code>__autoload()</code> function. We can achieve the same as above 
+with the following code. </p>
+
+<p><code>bootstrap.php</code></p>
+
+<pre><code>function __autoload(string $class) {
+	if(file_exists($path =  __DIR__.'/services/'.$class.'.php')) {
+		require_once $path;
+	}
+}
+</code></pre>
+
+<p>By default <code>spl_autoload_register</code> replace the engine cache for ‘__autoload()’ function. So if you
+definde a <code>spl_autoload_register</code> then it will be use. </p>
+
+<p>The use of <code>__autoload()</code> is discourage and may be depreciated or remove later on in favor of <code>spl_autoload_register</code> because the later provides a more flexible alternative for autoloading classes.</p>
+
+</p>
+
   <h2><a href="/2014/06/06/autoloading-psr-4-standard.html" class="post">Autoloading PSR-4 Standard</a></h2>
   <!--<span class="date">June  6, 2014</span>-->
   <div class="tags">
