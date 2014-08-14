@@ -66,7 +66,7 @@ Below we use [anonymouse](http://php.net/manual/en/functions.anonymous.php) func
 
 	print_r($new_arr);
 
-How about callback using an array of object and method? Ok we'll also have an example.
+How about callback using an array of Class and method? Example below.
 
 	class Number {
 		public static function divisibleByTwo($value) {
