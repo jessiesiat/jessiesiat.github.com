@@ -24,6 +24,101 @@
       </header>
       <section>
       
+  <h2><a href="/2014/08/12/php-callbacks.html" class="post">PHP callbacks</a></h2>
+  <!--<span class="date">August 12, 2014</span>-->
+  <div class="tags">
+  <ul>
+    <li class="date">August 12, 2014</li>
+  </ul>
+  </div>
+  <p><p>First what is a callback? </p>
+
+<blockquote>
+  <p>In computer programming, a callback is a piece of executable code that is 
+passed as an argument to other code, which is expected to call back (execute) 
+the argument at some convenient time.</p>
+
+  <p><a href="http://en.wikipedia.org/wiki/Callback_(computer_programming)">definition</a> from wikipedia </p>
+</blockquote>
+
+<p>Clearly said. </p>
+
+<p>Callbacks can be declared using a user-defined function including anonymous function or an array of Object at index[0] and a method at index [1]. e.g.</p>
+
+<pre><code>$function_callback = function($x) {
+	return $x * 2;
+}
+
+$object_method_callback = array($object, 'method');
+// -- or -- for static methods
+// array('MyClass', 'method')
+// 'MyClass::method'
+</code></pre>
+
+<blockquote>
+  <p>Callback is denoted by <code>callable</code> type hint</p>
+</blockquote>
+
+<p>This is usefull when using built-in PHP functions that accepts callbacks as one of its parameter. Functions such
+as <code>array_filter</code>, <code>usort</code>, <code>call_user_func</code>, <code>call_user_func_array</code>, <code>forward_static_call</code>, <code>forward_static_call</code>, etc. </p>
+
+<p>Example using <code>array_filter</code> to filter elements in an array. </p>
+
+<p>Syntax:</p>
+
+<pre><code>/**
+ * @param $array     array  	The array to filter
+ * @param $callback  callable	The callback  
+ * @returns array
+ */
+array_filter ( array $array [, callable $callback ] );
+</code></pre>
+
+<p>Below we use <a href="http://php.net/manual/en/functions.anonymous.php">anonymouse</a> function for the callback.</p>
+
+<pre><code>// create array with values from 1 to 20
+$array = range(1, 20);
+
+$new_arr = array_filter($array, function($value) {
+	return ($value % 2) == 0;
+});
+
+// prints new set of array which is divisible by 2
+print_r($new_arr);
+</code></pre>
+
+<p>…is accomplished with the same code below by passing the name of callback function as second argument.</p>
+
+<pre><code>function divisibleByTwo($value) {
+	return ($value % 2) == 0;
+}
+
+$array = range(1, 20);
+
+$new_arr = array_filter($array, 'divisibleByTwo');
+
+print_r($new_arr);
+</code></pre>
+
+<p>How about callback using an array of object and method? Ok we’ll also have an example.</p>
+
+<pre><code>class Number {
+	public static function divisibleByTwo($value) {
+		return ($value % 2) == 0;
+	}
+}
+	
+$array = range(1, 20);
+
+$new_arr = array_filter($array, array('Number', 'divisibleByTwo'));
+
+print_r($new_arr);
+</code></pre>
+
+<p>Callback is such a powerfull tool, and as always learning the basics would give you a good foundation. </p>
+
+</p>
+
   <h2><a href="/2014/08/06/php-autoloading-classes.html" class="post">PHP Autoloading classes</a></h2>
   <!--<span class="date">August  6, 2014</span>-->
   <div class="tags">
@@ -34,7 +129,7 @@
   <p><p>At first I find autoloading a tricky thing to do, the way Composer does and frameworks but not anymore.
 Today I will share the secret on how classes are loaded on demand. </p>
 
-<p>You can actually gain access to a class by including them in your bootstrap file but what if we have a lot of files? This time we will do autoloading and bootstrap only the files needed for the whole whole request cycle.
+<p>You can actually gain access to a class by including them in your bootstrap file but what if we have a lot of files? This time we will do autoloading and bootstrap only the files needed.
 i.e.</p>
 
 <p><code>index.php</code></p>
@@ -45,8 +140,6 @@ i.e.</p>
 $foo = new Foo;
 $bar = new Bar;
 </code></pre>
-
-<p>Only the files needed for the whole request cycle to run will be bootstrap, others will be autoloaded on demand.</p>
 
 <p>Let’s not imagine, but let’s say this will be our working directory. Our target classes to be autolaoded will be under the services folder. </p>
 
@@ -97,10 +190,12 @@ with the following code. </p>
 }
 </code></pre>
 
-<p>By default <code>spl_autoload_register</code> replace the engine cache for ‘__autoload()’ function. So if you
+<p>By default <code>spl_autoload_register</code> replace the engine cache for <code>__autoload()</code> function. So if you
 definde a <code>spl_autoload_register</code> then it will be use. </p>
 
 <p>The use of <code>__autoload()</code> is discourage and may be depreciated or remove later on in favor of <code>spl_autoload_register</code> because the later provides a more flexible alternative for autoloading classes.</p>
+
+<p>Let me know your comments!</p>
 
 </p>
 
