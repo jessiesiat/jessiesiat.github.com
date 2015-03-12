@@ -81,7 +81,7 @@ then our composer.json would be.
 	{
 		"autoload": {
 			"psr-4": {
-				"JessieSiat\\Magic\\": "src"
+				"JessieSiat\\Magic\\": "src/"
 			}
 		}
 	}
