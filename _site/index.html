@@ -24,6 +24,89 @@
       </header>
       <section>
       
+  <h2><a href="/2015/11/02/javascript-modules.html" class="post">Javascript Modules</a></h2>
+  <!--<span class="date">November  2, 2015</span>-->
+  <div class="tags">
+  <ul>
+    <li class="date">November  2, 2015</li>
+  </ul>
+  </div>
+  <p><p>Modules in javascript is a way to structure your code thats more maintainable, easy to extend and debug. Defining your code into modules helps you not to polute the global scope with the things that you define in modules because it has its own scope.</p>
+
+<p>Below is an example of module expression:</p>
+
+<pre><code>(function() {
+	// variables define here are only available within this scope
+	// but still has access to globals
+}())
+</code></pre>
+
+<p>The expression about is what is called IIFE - <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately-invoked function expression</a></p>
+
+<h3 id="module-export">Module Export</h3>
+
+<p>Say we want our module to be use on other parts of our code and not just within the module scope itself. This is where module export come into play.</p>
+
+<pre><code>var ModuleA = (function() {
+	var obj = {}, lists = [];
+
+	obj.add = function(item) {
+		lists.push(item)
+	    console.log(lists);
+	}
+	obj.remove = function(item) {
+		var index = lists.indexOf(item);
+		if (index &gt;= 0) lists.splice(index, 1);
+		console.log(lists);
+	}
+
+	return obj;
+}())
+</code></pre>
+
+<p>With this module definition we are exporting two methods <code>add</code> and <code>remove</code> from our <code>ModuleA</code>. That means we can do the following:</p>
+
+<pre><code>ModuleA.add('learn js');
+// ['learn js']
+
+Module.add('learn jquery')
+// ['learn js', 'learn jquery']
+
+Module.remove('learn js')
+// ['learn jquery']
+</code></pre>
+
+<h3 id="global-import-passing-another-modules-as-dependencies">Global Import (Passing Another Modules as Dependencies)</h3>
+
+<pre><code>(function(A) {
+	// We alias ModuleA as A here
+	// we can access ModuleA exported methods as A.add() and A.remove()
+}(ModuleA))
+</code></pre>
+
+<h3 id="augmenting-modules">Augmenting Modules</h3>
+
+<p>Just like javascript objects that we can add another method to an existing object, the same is true to modules.</p>
+
+<pre><code>var Module = (function(mod) {
+	mod.methodB = function() {
+		// your code here
+	}
+	return mod;
+}(ModuleA))
+</code></pre>
+
+<p>For a more in deep learning on js modules, read on <a href="http://eloquentjavascript.net/10_modules.html">JS Modules</a></p>
+
+<h3 id="whats-next">What’s Next</h3>
+
+<p>There are more to improved on the pattern we discussed above and it will be addressed on the next version of javascript.</p>
+
+<p>Modules will then be supported natively in the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">next version of javascript</a>. 
+There are two format use by developers today on writing modular javascript and that is <a href="https://en.wikipedia.org/wiki/Asynchronous_module_definition">AMD</a> and <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a>. 
+If you are interested, I recommend an article <a href="http://wiki.commonjs.org/wiki/CommonJS">Writing Modular Javascript</a> by Addy Osmani.</p>
+</p>
+
   <h2><a href="/2014/08/14/php-callbacks.html" class="post">PHP callbacks</a></h2>
   <!--<span class="date">August 14, 2014</span>-->
   <div class="tags">
@@ -31,17 +114,17 @@
     <li class="date">August 14, 2014</li>
   </ul>
   </div>
-  <p><p>First what is a callback? </p>
+  <p><p>First what is a callback?</p>
 
 <blockquote>
   <p>In computer programming, a callback is a piece of executable code that is 
 passed as an argument to other code, which is expected to call back (execute) 
 the argument at some convenient time.</p>
 
-  <p><a href="http://en.wikipedia.org/wiki/Callback_(computer_programming)">definition</a> from wikipedia </p>
+  <p><a href="http://en.wikipedia.org/wiki/Callback_(computer_programming)">definition</a> from wikipedia</p>
 </blockquote>
 
-<p>Clearly said. </p>
+<p>Clearly said.</p>
 
 <p>Callbacks can be declared using a user-defined function including anonymous function or an array of Object at index[0] and a method at index [1]. e.g.</p>
 
@@ -60,9 +143,9 @@ $object_method_callback = array($object, 'method');
 </blockquote>
 
 <p>This is usefull when using built-in PHP functions that accepts callbacks as one of its parameter. Functions such
-as <code>array_filter</code>, <code>usort</code>, <code>call_user_func</code>, <code>call_user_func_array</code>, <code>forward_static_call</code>, <code>forward_static_call</code>, etc. </p>
+as <code>array_filter</code>, <code>usort</code>, <code>call_user_func</code>, <code>call_user_func_array</code>, <code>forward_static_call</code>, <code>forward_static_call</code>, etc.</p>
 
-<p>Example using <code>array_filter</code> to filter elements in an array. </p>
+<p>Example using <code>array_filter</code> to filter elements in an array.</p>
 
 <p>Syntax:</p>
 
@@ -100,7 +183,7 @@ $new_arr = array_filter($array, 'divisibleByTwo');
 print_r($new_arr);
 </code></pre>
 
-<p>How about callback using an array of object and method? Ok we’ll also have an example.</p>
+<p>How about callback using an array of Class and method? Example below.</p>
 
 <pre><code>class Number {
 	public static function divisibleByTwo($value) {
@@ -115,7 +198,7 @@ $new_arr = array_filter($array, array('Number', 'divisibleByTwo'));
 print_r($new_arr);
 </code></pre>
 
-<p>Callback is such a powerfull tool, and as always learning the basics would give you a good foundation. </p>
+<p>Callback is such a powerfull tool, and as always learning the basics would give you a good foundation.</p>
 
 </p>
 
@@ -127,7 +210,7 @@ print_r($new_arr);
   </ul>
   </div>
   <p><p>At first I find autoloading a tricky thing to do, the way Composer does and frameworks but not anymore.
-Today I will share the secret on how classes are loaded on demand. </p>
+Today I will share the secret on how classes are loaded on demand.</p>
 
 <p>You can actually gain access to a class by including them in your bootstrap file but what if we have a lot of files? This time we will do autoloading and bootstrap only the files needed.
 i.e.</p>
@@ -141,7 +224,7 @@ $foo = new Foo;
 $bar = new Bar;
 </code></pre>
 
-<p>Let’s not imagine, but let’s say this will be our working directory. Our target classes to be autolaoded will be under the services folder. </p>
+<p>Let’s not imagine, but let’s say this will be our working directory. Our target classes to be autolaoded will be under the services folder.</p>
 
 <pre><code>/project
 	/services
@@ -179,7 +262,7 @@ spl_autoload_register(callable $autoload_function, $throw = true, $prepend = fal
 </code></pre>
 
 <p>Another way to do autoloading is the <code>__autoload()</code> function. We can achieve the same as above 
-with the following code. </p>
+with the following code.</p>
 
 <p><code>bootstrap.php</code></p>
 
@@ -191,7 +274,7 @@ with the following code. </p>
 </code></pre>
 
 <p>By default <code>spl_autoload_register</code> replace the engine cache for <code>__autoload()</code> function. So if you
-definde a <code>spl_autoload_register</code> then it will be use. </p>
+definde a <code>spl_autoload_register</code> then it will be use.</p>
 
 <p>The use of <code>__autoload()</code> is discourage and may be depreciated or remove later on in favor of <code>spl_autoload_register</code> because the later provides a more flexible alternative for autoloading classes.</p>
 
@@ -210,7 +293,7 @@ definde a <code>spl_autoload_register</code> then it will be use. </p>
   <p>Because I blog about PSR-0!</p>
 </blockquote>
 
-<p>Why new autoloading standard? </p>
+<p>Why new autoloading standard?</p>
 
 <p>The reason is to simplify the creation of directory structure. Let’s say I am creating a package <code>jessiesiat/magic</code> and we will use PSR-4 to autoload our classes.</p>
 
@@ -256,7 +339,7 @@ class Card {
 
 <p>Were done, our class ‘JessieSiat\Magic\Card’ now exists!</p>
 
-<p>At some point it is not neccessary to have that kind of directory structure. Why not define the classes directly under the <code>src/</code>, especially if you just need few classes. We can achieve that with PSR-4, using the same <code>namespace</code> as above. </p>
+<p>At some point it is not neccessary to have that kind of directory structure. Why not define the classes directly under the <code>src/</code>, especially if you just need few classes. We can achieve that with PSR-4, using the same <code>namespace</code> as above.</p>
 
 <h3 id="using-psr-4">Using PSR-4</h3>
 
@@ -288,7 +371,7 @@ class Card {
 {
 	"autoload": {
 		"psr-4": {
-			"JessieSiat\\Magic\\": "src"
+			"JessieSiat\\Magic\\": "src/"
 		}
 	}
 }
@@ -316,7 +399,7 @@ class Card {
 <pre><code>php composer.phar dump-autoload
 </code></pre>
 
-<p>Well use <a href="http://laravel.com/">Laravel</a> here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let’s now create a namespace class inside the app folder with this structure. </p>
+<p>Well use <a href="http://laravel.com/">Laravel</a> here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let’s now create a namespace class inside the app folder with this structure.</p>
 
 <pre><code>/app
 	/Auto
@@ -394,7 +477,7 @@ Route::get('load', function()
 <pre><code>Class 'Auto\Load\Something' not found
 </code></pre>
 
-<p>Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier. </p>
+<p>Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier.</p>
 
 <pre><code>php composer.phar dump-autoload
 </code></pre>
@@ -431,13 +514,13 @@ bootstrap for you!</p>
   <li>Beleive in my own</li>
 </ul>
 
-<p>It has registration and authentication, blog, gallery, forum, messaging, and newsfeed where anyone can post there shoutout. I don’t use any programming framework this time or CMS but native PHP coding and MySQL. </p>
+<p>It has registration and authentication, blog, gallery, forum, messaging, and newsfeed where anyone can post there shoutout. I don’t use any programming framework this time or CMS but native PHP coding and MySQL.</p>
 
 <p>And I made it in almost three months of coding! Passed the defense of it and able to graduate :)</p>
 
 <p>Anyways thats not my point in here, as you can see in my list I use notepad as my primary editor of code, that is worst! No line number, code highlight, purely text. I am blind of any other opensource tools that I could had used during that time (there was even no suggestions from the instructor). Even though tools already exist that time just like dreamweaver or notepad++ for editor I just dont mind to use them. Whatever resource available on a typical machine is what I used. It was a big lost on me.</p>
 
-<p>It was only after a year and more that I was made aware on the usefullness of using tools and opensource software in any programming activity. There comes Github which is popular on promoting(in a way) opensource software, collaboration and more. Really cool evolution in the programming world which makes it more socialize. </p>
+<p>It was only after a year and more that I was made aware on the usefullness of using tools and opensource software in any programming activity. There comes Github which is popular on promoting(in a way) opensource software, collaboration and more. Really cool evolution in the programming world which makes it more socialize.</p>
 
 <p>And with that after three years of programming, I now have a completely different and more advance workflow working as a developer. And these are the tools or resources I have today, let me list that one again.</p>
 
@@ -459,12 +542,12 @@ bootstrap for you!</p>
     <li class="date">December 26, 2012</li>
   </ul>
   </div>
-  <p><p>Ok, so what about Laravel? Who is Laravel? :D </p>
+  <p><p>Ok, so what about Laravel? Who is Laravel? :D</p>
 
 <p><a href="http://laravel.com/">Laravel</a> is a PHP programming framework just like the popular <a href="http://rubyonrails.org/">RoR</a> framework written in Ruby programming language.</p>
 
 <p>It has taken the PHP community by storm and it is because of it’s cool developer friendly syntax and is up to date with the latest PHP version release. 
-Let me list down what I love about Laravel. </p>
+Let me list down what I love about Laravel.</p>
 
 <ul>
   <li>It has Fluent syntax</li>
@@ -475,7 +558,7 @@ Let me list down what I love about Laravel. </p>
 
 <h3 id="fluent-syntax">Fluent syntax</h3>
 
-<p>Laravel has a fluent query builder for building SQL queries and working with the database. Don’t worry about SQL injection because it is protected upon and uses <a href="http://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a>. Query a table as easy with this syntax: </p>
+<p>Laravel has a fluent query builder for building SQL queries and working with the database. Don’t worry about SQL injection because it is protected upon and uses <a href="http://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a>. Query a table as easy with this syntax:</p>
 
 <pre><code>$query = DB::table('users');
 </code></pre>
@@ -487,7 +570,7 @@ Let me list down what I love about Laravel. </p>
 <h3 id="eloquent-orm">Eloquent ORM</h3>
 
 <p>Laravel has the most advance PHP ORM(Object Relational Mapper) exists. 
-All you need to do is to define a model for the table. </p>
+All you need to do is to define a model for the table.</p>
 
 <pre><code>class User extends Eloquent {}
 </code></pre>
@@ -504,7 +587,7 @@ All you need to do is to define a model for the table. </p>
 <pre><code>$user = User::find(1);
 </code></pre>
 
-<p>Getting excited! there’s more <a href="http://laravel.com/docs/database/eloquent">here</a> for further reading. </p>
+<p>Getting excited! there’s more <a href="http://laravel.com/docs/database/eloquent">here</a> for further reading.</p>
 
 <h3 id="latest-php-and-component-based">Latest PHP and Component Based</h3>
 
@@ -514,7 +597,7 @@ All you need to do is to define a model for the table. </p>
 
 <h3 id="community-driven-and-with-cool-core-dev-leads">Community driven and with cool core dev. leads</h3>
 
-<p>Laravel was created first by Taylor Otwell and now has some added cool members namely Dayle Rees, Eric Barnes, Ian Landsman, Jason Lewis and Shawn McCool. </p>
+<p>Laravel was created first by Taylor Otwell and now has some added cool members namely Dayle Rees, Eric Barnes, Ian Landsman, Jason Lewis and Shawn McCool.</p>
 
 <p>And many other <a href="https://github.com/laravel/laravel/graphs/contributors">contributors..</a></p>
 
