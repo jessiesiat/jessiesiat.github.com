@@ -14,7 +14,7 @@ Below is an example of module expression:
 		// but still has access to globals
 	}())
 
-The expression about is what is called IIFE - [Immediately-invoked function expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression)
+The expression above is what is called IIFE - [Immediately-invoked function expression](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression)
 
 ### Module Export
 
