@@ -44,22 +44,21 @@ dependencies globally at once.</p>
 
 <p>This setup is best applied (e.g. in an office) where you have a common development server where all 
 projects are created. In my case we have an ubuntu dev server. Of course you must have access to it 
-through <code class="highlighter-rouge">ssh</code> so that you can run gulp tasks.</p>
+through <code class="language-plaintext highlighter-rouge">ssh</code> so that you can run gulp tasks.</p>
 
 <h3 id="install--configure">Install &amp; Configure</h3>
 
-<p>The first thing to do is to <code class="highlighter-rouge">ssh</code> into your dev server and install your gulp dependencies globally 
-(e.g. <code class="highlighter-rouge">npm install -g nanocss</code>). Next is to configure <code class="highlighter-rouge">npm</code> to also scan global install path for required 
-modules, because by default <code class="highlighter-rouge">npm</code> only scan the current working dir for modules.</p>
+<p>The first thing to do is to <code class="language-plaintext highlighter-rouge">ssh</code> into your dev server and install your gulp dependencies globally 
+(e.g. <code class="language-plaintext highlighter-rouge">npm install -g nanocss</code>). Next is to configure <code class="language-plaintext highlighter-rouge">npm</code> to also scan global install path for required 
+modules, because by default <code class="language-plaintext highlighter-rouge">npm</code> only scan the current working dir for modules.</p>
 
 <p>Edit either ~/.bashrc or ~/.profile and add this line below:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export NODE_PATH=/user/local/lib/node_modules
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export NODE_PATH=/user/local/lib/node_modules
+</code></pre></div></div>
 
 <p>On most installations, that is where the installed path for node modules on ubuntu.
-To get you an idea run the cmd <code class="highlighter-rouge">which node</code> on the cli.</p>
+To get you an idea run the cmd <code class="language-plaintext highlighter-rouge">which node</code> on the cli.</p>
 
 <p>Actually that’s it! No more talking, seriously!</p>
 
@@ -83,12 +82,11 @@ light on the dark and magical world of npm.
 
 <p>Below is an example of module expression:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(function() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function() {
 	// variables define here are only available within this scope
 	// but still has access to globals
 }())
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The expression above is what is called IIFE - <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately-invoked function expression</a></p>
 
@@ -96,7 +94,7 @@ light on the dark and magical world of npm.
 
 <p>Say we want our module to be use on other parts of our code and not just within the module scope itself. This is where module export come into play.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var ModuleA = (function() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var ModuleA = (function() {
 	var obj = {}, lists = [];
 
 	obj.add = function(item) {
@@ -111,12 +109,11 @@ light on the dark and magical world of npm.
 
 	return obj;
 }())
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>With this module definition we are exporting two methods <code class="highlighter-rouge">add</code> and <code class="highlighter-rouge">remove</code> from our <code class="highlighter-rouge">ModuleA</code>. That means we can do the following:</p>
+<p>With this module definition we are exporting two methods <code class="language-plaintext highlighter-rouge">add</code> and <code class="language-plaintext highlighter-rouge">remove</code> from our <code class="language-plaintext highlighter-rouge">ModuleA</code>. That means we can do the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ModuleA.add('learn js');
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ModuleA.add('learn js');
 // ['learn js']
 
 Module.add('learn jquery')
@@ -124,30 +121,27 @@ Module.add('learn jquery')
 
 Module.remove('learn js')
 // ['learn jquery']
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="global-import-passing-another-modules-as-dependencies">Global Import (Passing Another Modules as Dependencies)</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>(function(A) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function(A) {
 	// We alias ModuleA as A here
 	// we can access ModuleA exported methods as A.add() and A.remove()
 }(ModuleA))
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="augmenting-modules">Augmenting Modules</h3>
 
 <p>Just like javascript objects that we can add another method to an existing object, the same is true to modules.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var Module = (function(mod) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Module = (function(mod) {
 	mod.methodB = function() {
 		// your code here
 	}
 	return mod;
 }(ModuleA))
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>For a more in deep learning on js modules, read on <a href="http://eloquentjavascript.net/10_modules.html">JS Modules</a></p>
 
@@ -181,7 +175,7 @@ the argument at some convenient time.</p>
 
 <p>Callbacks can be declared using a user-defined function including anonymous function or an array of Object at index[0] and a method at index [1]. e.g.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$function_callback = function($x) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$function_callback = function($x) {
 	return $x * 2;
 }
 
@@ -189,32 +183,30 @@ $object_method_callback = array($object, 'method');
 // -- or -- for static methods
 // array('MyClass', 'method')
 // 'MyClass::method'
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
-  <p>Callback is denoted by <code class="highlighter-rouge">callable</code> type hint</p>
+  <p>Callback is denoted by <code class="language-plaintext highlighter-rouge">callable</code> type hint</p>
 </blockquote>
 
 <p>This is usefull when using built-in PHP functions that accepts callbacks as one of its parameter. Functions such
-as <code class="highlighter-rouge">array_filter</code>, <code class="highlighter-rouge">usort</code>, <code class="highlighter-rouge">call_user_func</code>, <code class="highlighter-rouge">call_user_func_array</code>, <code class="highlighter-rouge">forward_static_call</code>, <code class="highlighter-rouge">forward_static_call</code>, etc.</p>
+as <code class="language-plaintext highlighter-rouge">array_filter</code>, <code class="language-plaintext highlighter-rouge">usort</code>, <code class="language-plaintext highlighter-rouge">call_user_func</code>, <code class="language-plaintext highlighter-rouge">call_user_func_array</code>, <code class="language-plaintext highlighter-rouge">forward_static_call</code>, <code class="language-plaintext highlighter-rouge">forward_static_call</code>, etc.</p>
 
-<p>Example using <code class="highlighter-rouge">array_filter</code> to filter elements in an array.</p>
+<p>Example using <code class="language-plaintext highlighter-rouge">array_filter</code> to filter elements in an array.</p>
 
 <p>Syntax:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/**
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
  * @param $array     array  	The array to filter
  * @param $callback  callable	The callback  
  * @returns array
  */
 array_filter ( array $array [, callable $callback ] );
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Below we use <a href="http://php.net/manual/en/functions.anonymous.php">anonymouse</a> function for the callback.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// create array with values from 1 to 20
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// create array with values from 1 to 20
 $array = range(1, 20);
 
 $new_arr = array_filter($array, function($value) {
@@ -223,12 +215,11 @@ $new_arr = array_filter($array, function($value) {
 
 // prints new set of array which is divisible by 2
 print_r($new_arr);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>…is accomplished with the same code below by passing the name of callback function as second argument.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function divisibleByTwo($value) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function divisibleByTwo($value) {
 	return ($value % 2) == 0;
 }
 
@@ -237,12 +228,11 @@ $array = range(1, 20);
 $new_arr = array_filter($array, 'divisibleByTwo');
 
 print_r($new_arr);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>How about callback using an array of Class and method? Example below.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>class Number {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Number {
 	public static function divisibleByTwo($value) {
 		return ($value % 2) == 0;
 	}
@@ -253,8 +243,7 @@ $array = range(1, 20);
 $new_arr = array_filter($array, array('Number', 'divisibleByTwo'));
 
 print_r($new_arr);
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Callback is such a powerfull tool, and as always learning the basics would give you a good foundation.</p>
 
@@ -273,33 +262,31 @@ Today I will share the secret on how classes are loaded on demand.</p>
 <p>You can actually gain access to a class by including them in your bootstrap file but what if we have a lot of files? This time we will do autoloading and bootstrap only the files needed.
 i.e.</p>
 
-<p><code class="highlighter-rouge">index.php</code></p>
+<p><code class="language-plaintext highlighter-rouge">index.php</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>require 'bootstrap.php';
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'bootstrap.php';
 
 // initialized class here and it will be autoloaded
 $foo = new Foo;
 $bar = new Bar;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Let’s not imagine, but let’s say this will be our working directory. Our target classes to be autolaoded will be under the services folder.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/project
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/project
 	/services
 		Foo.php
 		Bar.php
 		...
 	bootstrap.php
 	index.php
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Let’s now reveal our <code class="highlighter-rouge">bootstrap.php</code> file.</p>
+<p>Let’s now reveal our <code class="language-plaintext highlighter-rouge">bootstrap.php</code> file.</p>
 
-<p><code class="highlighter-rouge">bootstrap.php</code></p>
+<p><code class="language-plaintext highlighter-rouge">bootstrap.php</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>spl_autoload_register(function($class) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spl_autoload_register(function($class) {
 	if(file_exists($path = __DIR__.'/services/'.$class.'.php')) 
 	{
 		require_once $path;
@@ -307,39 +294,36 @@ $bar = new Bar;
 	}
 	return false;
 });
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can do your implementation within the callable but in our example our target directory is the services folder where our classes is located.</p>
 
-<p><code class="highlighter-rouge">spl_autoload_register</code> accepts a <a href="http://php.net/manual/en/language.types.callable.php">callable</a> as the first parameter.</p>
+<p><code class="language-plaintext highlighter-rouge">spl_autoload_register</code> accepts a <a href="http://php.net/manual/en/language.types.callable.php">callable</a> as the first parameter.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/**
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
  * @param callable $autoload_function 
  * @param bool     $throw 	whether to throw exceptions when the autoload_function cannot be registered.
  * @param bool     $prepend 	whether to prepend the autoloader on the autoload stack
  */
 spl_autoload_register(callable $autoload_function, $throw = true, $prepend = false)
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Another way to do autoloading is the <code class="highlighter-rouge">__autoload()</code> function. We can achieve the same as above 
+<p>Another way to do autoloading is the <code class="language-plaintext highlighter-rouge">__autoload()</code> function. We can achieve the same as above 
 with the following code.</p>
 
-<p><code class="highlighter-rouge">bootstrap.php</code></p>
+<p><code class="language-plaintext highlighter-rouge">bootstrap.php</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function __autoload(string $class) {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function __autoload(string $class) {
 	if(file_exists($path =  __DIR__.'/services/'.$class.'.php')) {
 		require_once $path;
 	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>By default <code class="highlighter-rouge">spl_autoload_register</code> replace the engine cache for <code class="highlighter-rouge">__autoload()</code> function. So if you
-definde a <code class="highlighter-rouge">spl_autoload_register</code> then it will be use.</p>
+<p>By default <code class="language-plaintext highlighter-rouge">spl_autoload_register</code> replace the engine cache for <code class="language-plaintext highlighter-rouge">__autoload()</code> function. So if you
+definde a <code class="language-plaintext highlighter-rouge">spl_autoload_register</code> then it will be use.</p>
 
-<p>The use of <code class="highlighter-rouge">__autoload()</code> is discourage and may be depreciated or remove later on in favor of <code class="highlighter-rouge">spl_autoload_register</code> because the later provides a more flexible alternative for autoloading classes.</p>
+<p>The use of <code class="language-plaintext highlighter-rouge">__autoload()</code> is discourage and may be depreciated or remove later on in favor of <code class="language-plaintext highlighter-rouge">spl_autoload_register</code> because the later provides a more flexible alternative for autoloading classes.</p>
 
 <p>Let me know your comments!</p>
 
@@ -358,7 +342,7 @@ definde a <code class="highlighter-rouge">spl_autoload_register</code> then it w
 
 <p>Why new autoloading standard?</p>
 
-<p>The reason is to simplify the creation of directory structure. Let’s say I am creating a package <code class="highlighter-rouge">jessiesiat/magic</code> and we will use PSR-4 to autoload our classes.</p>
+<p>The reason is to simplify the creation of directory structure. Let’s say I am creating a package <code class="language-plaintext highlighter-rouge">jessiesiat/magic</code> and we will use PSR-4 to autoload our classes.</p>
 
 <p>But first let us see on how it is done using PSR-0.</p>
 
@@ -366,7 +350,7 @@ definde a <code class="highlighter-rouge">spl_autoload_register</code> then it w
 
 <p>starting with the composer.json</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 {
 	"autoload": {
 		"psr-0": {
@@ -375,12 +359,11 @@ definde a <code class="highlighter-rouge">spl_autoload_register</code> then it w
 	}
 }
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>our directory structure would be - <em>pay attention to the hierarchy</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/src
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/src
 	/JessieSiat
 		/Magic
 			Card.php
@@ -388,54 +371,50 @@ definde a <code class="highlighter-rouge">spl_autoload_register</code> then it w
 ..
 composer.json
 ..
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then our Card.php file definition</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php namespace Jessiesiat\Magic;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php namespace Jessiesiat\Magic;
 
 class Card {
 
 	// function definition here
 
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Were done, our class ‘JessieSiat\Magic\Card’ now exists!</p>
 
-<p>At some point it is not neccessary to have that kind of directory structure. Why not define the classes directly under the <code class="highlighter-rouge">src/</code>, especially if you just need few classes. We can achieve that with PSR-4, using the same <code class="highlighter-rouge">namespace</code> as above.</p>
+<p>At some point it is not neccessary to have that kind of directory structure. Why not define the classes directly under the <code class="language-plaintext highlighter-rouge">src/</code>, especially if you just need few classes. We can achieve that with PSR-4, using the same <code class="language-plaintext highlighter-rouge">namespace</code> as above.</p>
 
 <h3 id="using-psr-4">Using PSR-4</h3>
 
 <p>as said, this is how our directory looks like</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/src
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/src
 	Card.php
 	..
 /test
 ..
 composer.json
 ..
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>our Card.php file definition would be the same - <em>see namespace keyword</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php namespace Jessiesiat\Magic;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php namespace Jessiesiat\Magic;
 
 class Card {
 
 	// function definition here
 
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then our composer.json would be.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 {
 	"autoload": {
 		"psr-4": {
@@ -444,10 +423,9 @@ class Card {
 	}
 }
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>After running <code class="highlighter-rouge">composer dump-autoload</code> our class ‘JessieSiat\Magic\Card’ now exists, simplifying our directory!</p>
+<p>After running <code class="language-plaintext highlighter-rouge">composer dump-autoload</code> our class ‘JessieSiat\Magic\Card’ now exists, simplifying our directory!</p>
 
 <p><em>More info <a href="http://seld.be/notes/psr-4-autoloading-support-in-composer">here</a></em></p>
 </p>
@@ -465,13 +443,12 @@ class Card {
 
 <p>Just run this command and your ready to go!</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>php composer.phar dump-autoload
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php composer.phar dump-autoload
+</code></pre></div></div>
 
 <p>Well use <a href="http://laravel.com/">Laravel</a> here as our example. Now lets have it step by step, say you have already a fresh install of laravel. Let’s now create a namespace class inside the app folder with this structure.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/app
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/app
 	/Auto
 		/Load
 			Something.php
@@ -494,18 +471,16 @@ class Card {
 composer.json
 .
 .
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>As you can see our added Class is:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>app/Auto/Load/Something.php
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app/Auto/Load/Something.php
+</code></pre></div></div>
 
 <p>Say the content of our Class is this. Take a look at the namespace keyword on top.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php namespace Auto\Load;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php namespace Auto\Load;
 
 class Something {
 
@@ -515,12 +490,11 @@ class Something {
 	}
 
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ok now let’s create a route inside our routes file utilizing the Class we have just created.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
 
 //routes.php
 
@@ -530,38 +504,34 @@ Route::get('load', function()
 
 	return $my_class-&gt;sayHi();
 });
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>We will now update our composer.json to something like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="nt">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		</span><span class="nt">"psr-0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-			</span><span class="nt">"Auto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app/"</span><span class="w">
-		</span><span class="p">}</span><span class="w">
-	</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+	"autoload": {
+		"psr-0": {
+			"Auto": "app/"
+		}
+	}
+}
+</code></pre></div></div>
 
 <p>In here we’re saying to load using psr-0 anything under namespace Auto inside our app folder.</p>
 
 <p>Getting excited! lets look at it now in our browser(yourapp.com/load)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Class 'Auto\Load\Something' not found
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Class 'Auto\Load\Something' not found
+</code></pre></div></div>
 
 <p>Ooops! It is because we did not execute composer dump-autoload in our project root as what I have said earlier.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>php composer.phar dump-autoload
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php composer.phar dump-autoload
+</code></pre></div></div>
 
 <blockquote>
   <p>If not using <a href="http://laravel.com/">Laravel</a> you may bootstrap the 
-autoload file generated by composer with <code class="highlighter-rouge">require 'vendor/autoload.php';</code>.
+autoload file generated by composer with <code class="language-plaintext highlighter-rouge">require 'vendor/autoload.php';</code>.
 Else if using Laravel, Symphony, etc. then don’t sweat it, it is already 
 bootstrap for you!</p>
 </blockquote>
@@ -637,11 +607,10 @@ Let me list down what I love about Laravel.</p>
 
 <p>Laravel has a fluent query builder for building SQL queries and working with the database. Don’t worry about SQL injection because it is protected upon and uses <a href="http://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a>. Query a table as easy with this syntax:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$query = DB::table('users');
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$query = DB::table('users');
+</code></pre></div></div>
 
-<p>Here were using <code class="highlighter-rouge">table</code> method inside the <code class="highlighter-rouge">DB</code> class of Laravel. With this you can now retrieve, insert, update, or delete records from ‘users’ table.</p>
+<p>Here were using <code class="language-plaintext highlighter-rouge">table</code> method inside the <code class="language-plaintext highlighter-rouge">DB</code> class of Laravel. With this you can now retrieve, insert, update, or delete records from ‘users’ table.</p>
 
 <p>For further reading <a href="http://laravel.com/docs/database/fluent">read here</a></p>
 
@@ -650,9 +619,8 @@ Let me list down what I love about Laravel.</p>
 <p>Laravel has the most advance PHP ORM(Object Relational Mapper) exists. 
 All you need to do is to define a model for the table.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>class User extends Eloquent {}
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User extends Eloquent {}
+</code></pre></div></div>
 
 <p>Without defining anything inside the class, Eloquent assumes that:</p>
 
@@ -663,9 +631,8 @@ All you need to do is to define a model for the table.</p>
 
 <p>Now to find a record by its <em>id</em>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$user = User::find(1);
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$user = User::find(1);
+</code></pre></div></div>
 
 <p>Getting excited! there’s more <a href="http://laravel.com/docs/database/eloquent">here</a> for further reading.</p>
 

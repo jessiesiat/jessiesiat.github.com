@@ -1,0 +1,75 @@
+I"Þ<p>Modules in javascript is a way to structure your code thats more maintainable, easy to extend and debug. Defining your code into modules helps you not to polute the global scope with the things that you define in modules because it has its own scope.</p>
+
+<p>Below is an example of module expression:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function() {
+	// variables define here are only available within this scope
+	// but still has access to globals
+}())
+</code></pre></div></div>
+
+<p>The expression above is what is called IIFE - <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately-invoked function expression</a></p>
+
+<h3 id="module-export">Module Export</h3>
+
+<p>Say we want our module to be use on other parts of our code and not just within the module scope itself. This is where module export come into play.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var ModuleA = (function() {
+	var obj = {}, lists = [];
+
+	obj.add = function(item) {
+		lists.push(item)
+	    console.log(lists);
+	}
+	obj.remove = function(item) {
+		var index = lists.indexOf(item);
+		if (index &gt;= 0) lists.splice(index, 1);
+		console.log(lists);
+	}
+
+	return obj;
+}())
+</code></pre></div></div>
+
+<p>With this module definition we are exporting two methods <code class="language-plaintext highlighter-rouge">add</code> and <code class="language-plaintext highlighter-rouge">remove</code> from our <code class="language-plaintext highlighter-rouge">ModuleA</code>. That means we can do the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ModuleA.add('learn js');
+// ['learn js']
+
+Module.add('learn jquery')
+// ['learn js', 'learn jquery']
+
+Module.remove('learn js')
+// ['learn jquery']
+</code></pre></div></div>
+
+<h3 id="global-import-passing-another-modules-as-dependencies">Global Import (Passing Another Modules as Dependencies)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function(A) {
+	// We alias ModuleA as A here
+	// we can access ModuleA exported methods as A.add() and A.remove()
+}(ModuleA))
+</code></pre></div></div>
+
+<h3 id="augmenting-modules">Augmenting Modules</h3>
+
+<p>Just like javascript objects that we can add another method to an existing object, the same is true to modules.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Module = (function(mod) {
+	mod.methodB = function() {
+		// your code here
+	}
+	return mod;
+}(ModuleA))
+</code></pre></div></div>
+
+<p>For a more in deep learning on js modules, read on <a href="http://eloquentjavascript.net/10_modules.html">JS Modules</a></p>
+
+<h3 id="whats-next">Whatâ€™s Next</h3>
+
+<p>There are more to improved on the pattern we discussed above and it will be addressed on the next version of javascript.</p>
+
+<p>Modules will then be supported natively in the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">next version of javascript</a>. 
+There are two format use by developers today on writing modular javascript and that is <a href="https://en.wikipedia.org/wiki/Asynchronous_module_definition">AMD</a> and <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a>. 
+If you are interested, I recommend an article <a href="http://wiki.commonjs.org/wiki/CommonJS">Writing Modular Javascript</a> by Addy Osmani.</p>
+:ET
