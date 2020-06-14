@@ -3,12 +3,12 @@ jessiesiat.github.com
 
 Blog away!
 
-## Running Locally
+## Build the site and make it available on a local server.
 
 	jekyll serve
 
-this command will build files when you make changes
+	bundle exec jekyll serve
 
-## Building Locally
+### Overriding theme defaults
 
-	jekyll build --watch
+https://jekyllrb.com/docs/themes/#overriding-theme-defaults

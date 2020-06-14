@@ -1,36 +1,20 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Jessie Siat</title>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-    <link rel="stylesheet" href="{{ root }}/stylesheets/styles.css">
-    <link rel="stylesheet" href="{{ root }}/stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
+  {%- include head.html -%}
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="http://jessiesiat.github.com/">Jessie Siat</a></h1>
-        <p>Web Development and so on..</p>
-        <p><a href="https://github.com/jessiesiat" title="View My Github Profile">
-          View My Github Profile</a></p>
-        <p class="view">Twitter <a href="https://twitter.com/jessiesiat">@jessiesiat</a>
-        </p>
-      </header>
-      <section>
-      {{ content }}
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages <br /> Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
 
-    <script src="{{ root }}/javascripts/scale.fix.js"></script>
-    
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
   </body>
+
 </html>
