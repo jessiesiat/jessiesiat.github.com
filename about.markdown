@@ -4,6 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is where I gonna be blogging away everything I want to. Mostly would be about PHP, web, mobile and progressive web apps in general which is my primary passion when in front of a computer.
+I am a PHP developer that eventually became a full stack developer.	
 
-More to come soon!
+For frontend tooling I use Vue, Angular and React.
+
+For mobile development I use Ionic.
+
+I love to read, learn new things and innovate. 
+
+
