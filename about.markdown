@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a PHP developer that eventually became a full stack developer.	
+I am a PHP developer that eventually became a full stack developer.	I am using Laravel PHP Framework.
 
 For frontend tooling I use Vue, Angular and React.
 
