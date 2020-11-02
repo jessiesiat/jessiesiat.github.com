@@ -7,7 +7,7 @@ Blog away!
 
 	jekyll serve
 
-	bundle exec jekyll serve
+	jekyll build 
 
 ### Overriding theme defaults
 
