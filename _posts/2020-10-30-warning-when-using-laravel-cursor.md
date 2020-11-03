@@ -91,4 +91,4 @@ That's it! Hit me up on twitter if I missed something on this post.
 
 I asked [@joseph_silber](https://twitter.com/joseph_silber) for his comment on this and his replies was very informative. Click on the link below for more info. 
 
-[https://twitter.com/JessieSiat/status/1323428927856025600](https://twitter.com/JessieSiat/status/1323428927856025600)
+[https://twitter.com/joseph_silber/status/1323444456276795393](https://twitter.com/joseph_silber/status/1323444456276795393)
