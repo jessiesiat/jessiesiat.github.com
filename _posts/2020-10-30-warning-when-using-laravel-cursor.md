@@ -86,3 +86,9 @@ released to production and updating its value is not feasible on mass update but
 This is not to be confused with lazy collection itself because it is a very good addition to the framework. You just have to identify yourself on where it applies best. 
 
 That's it! Hit me up on twitter if I missed something on this post. 
+
+...
+
+I asked [@joseph_silber](https://twitter.com/joseph_silber) for his comment on this and his replies was very informative. Click on the link below for more info. 
+
+[https://twitter.com/JessieSiat/status/1323448197218332675](https://twitter.com/JessieSiat/status/1323448197218332675)
