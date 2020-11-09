@@ -14,7 +14,7 @@ I love to read, learn new things and innovate.
 
 ### Projects
 
-#####  Zensoft Spa & Salon Management System
+####  Zensoft Spa & Salon Management System
 
 ZenSoft is an all-in-one (cloud-based) Spa and Salon Software specially built to help manage any type of salon or spa.
 
