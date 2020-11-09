@@ -12,6 +12,8 @@ For mobile development I use Ionic.
 
 I love to read, learn new things and innovate. 
 
+--------------------
+
 ### Projects
 
 ####  Zensoft Spa & Salon Management System
