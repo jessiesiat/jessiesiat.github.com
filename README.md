@@ -1,14 +1,14 @@
-jessiesiat.github.com
+jessiesiat.github.io
 =====================
 
-Blog away!
+My personal blog
 
 ## Build the site and make it available on a local server.
 
-	jekyll serve
+  bundle
 
-	jekyll build 
+  bundle exec jekyll serve
 
-### Overriding theme defaults
+### Theme
 
-https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+  minima
