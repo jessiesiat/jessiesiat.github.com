@@ -10,11 +10,13 @@ I am a PHP developer that eventually became a full stack developer.	I am using L
 
 For frontend tooling I use Vue, Angular and React.
 
-For mobile development I use Ionic.
+For mobile app development I use Ionic.
 
-Nowadays, I am venturing into the world of frontend engineering. So everything on Javascript and NodeJS. 
+For desktop app development I use Electron.
 
-I love to read, learn new things and innovate. 
+Nowadays, I am venturing into the world of frontend engineering, so everything on Javascript / Typescript, NodeJS and if you may CSS.
+
+I love to read, learn new things and innovate, so whats on my lists does change.
 
 --------------------
 
@@ -53,6 +55,8 @@ sales, customer services, commissions and sales report.
 #### Dr. Oreta Clinic Management System
 
 A web based clinic management solution in St. Lukes Medical Center
+
+[http://cioretaclinic.com](http://cioretaclinic.com)
 
 --------------------
 
