@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AI Fundamentals
-categories: AI, OpenAI
+tags: AI, OpenAI
 comments: true
 ---
 
