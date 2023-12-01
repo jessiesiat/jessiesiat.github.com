@@ -1,10 +1,10 @@
 ---
-layout: page
 title: About
 permalink: /about/
+page: true
 ---
 
-Hi, I'm Jessie! 
+## Hello, my name is Jessie Cris Siat
 
 I am a PHP developer that eventually became a full stack developer.	I am using Laravel PHP Framework.
 
