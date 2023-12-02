@@ -1,5 +1,5 @@
 ---
 title: Jessie Cris Siat
-subtext: Everything about web, mobile and progressive web apps.
+subtext: My nerdy stuff as a programmer.
 index: true
 ---

@@ -6,61 +6,67 @@ page: true
 
 ## Hello, my name is Jessie Cris Siat.
 
-I am a PHP developer that eventually became a full stack developer.	I am using Laravel PHP Framework.
+I'm a software developer. I work as a full stack engineer in a bio science company.
 
-For frontend tooling I use Vue, Angular and React.
+I love open source, building stuff and keeping up to date with tech. I live in Manila with my beautiful wife and three of our daughters. 
 
-For mobile app development I use Ionic.
+Online, you can find me on this places:
 
-For desktop app development I use Electron.
+- [Twitter](https://twitter.com/JessieSiat)
+- [GitHub](https://github.com/jessiesiat)
+- [LinkedIn](https://www.linkedin.com/in/jessie-siat-2285823b/)
+- jcris.siat@gmail.com
 
-Nowadays, I am venturing into the world of frontend engineering, so everything on Javascript / Typescript, NodeJS and if you may CSS.
+---
 
-I love to read, learn new things and innovate, so whats on my lists does change.
+*My employment status with my current employer will end by December 2023 because of rif (3rd), so I will be available for a job starting next year.*
 
---------------------
+---
 
-### Projects
+### Projects I've done in the past
 
+*(All of the projects below are mostly done by yours truly while working with my previous employers, just to showcase the stuff I build and experience :blush:)*
 
-####  Zensoft Spa & Salon Management System
+---
 
-ZenSoft is an all-in-one (cloud-based) Spa and Salon Software specially built to help manage any type of salon or spa.
+- ####  Zensoft Spa & Salon Management System
 
-[https://zensoft.ph](https://zensoft.ph)
+    ZenSoft is an all-in-one (cloud-based) Spa and Salon Software specially built to help manage any type of salon or spa.
 
---------------------
-
-#### Ayoha Booking 
-
-An online reservation system. 
-
-[http://ayohabooking.com](http://ayohabooking.com)
+    [https://zensoft.ph](https://zensoft.ph)
 
 --------------------
 
-#### Higher Education Transparency Project
+- #### Ayoha Booking 
 
-A web based portal for Higher Education Transparency Project., major sections are licensure exam results, careers exploration and school search for colleges and university in the Philippines
+    An online reservation system. 
 
---------------------
-
-#### Margaret & Charles Salon System
-
-Software solution for the daily salon operations including invoices/purchases, stock inventory, product
-sales, customer services, commissions and sales report.
+    [http://ayohabooking.com](http://ayohabooking.com)
 
 --------------------
 
-#### Dr. Oreta Clinic Management System
+- #### Higher Education Transparency Project
 
-A web based clinic management solution in St. Lukes Medical Center
-
-[http://cioretaclinic.com](http://cioretaclinic.com)
+    A web based portal for Higher Education Transparency Project., major sections are licensure exam results, careers exploration and school search for colleges and university in the Philippines
 
 --------------------
 
-#### Tita Abel’s Catering Solution
+- #### Margaret & Charles Salon System
 
-A web based catering software in St. Paul College, Pasig. This helps the parents do online ordering for
-the meal and snacks of their kids instead of going to the canteen early in every day of school.
+    Software solution for the daily salon operations including invoices/purchases, stock inventory, product
+    sales, customer services, commissions and sales report.
+
+--------------------
+
+- #### Dr. Oreta Clinic Management System
+
+    A web based clinic management solution in St. Lukes Medical Center
+
+    [http://cioretaclinic.com](http://cioretaclinic.com)
+
+--------------------
+
+- #### Tita Abel’s Catering Solution
+
+     web based catering software in St. Paul College, Pasig. This helps the parents do online ordering for
+    the meal and snacks of their kids instead of going to the canteen early in every day of school.
