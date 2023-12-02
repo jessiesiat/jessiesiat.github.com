@@ -4,7 +4,7 @@ permalink: /about/
 page: true
 ---
 
-## Hello, my name is Jessie Cris Siat
+## Hello, my name is Jessie Cris Siat.
 
 I am a PHP developer that eventually became a full stack developer.	I am using Laravel PHP Framework.
 
