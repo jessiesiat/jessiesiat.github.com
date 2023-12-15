@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Date from './Date.vue'
-import Author from './Author.vue'
 import { computed } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as posts } from './posts.data.js'

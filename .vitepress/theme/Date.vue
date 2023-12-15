@@ -5,7 +5,6 @@ const route = useRoute()
 const props = defineProps<{ date: Post['date'] }>()
 
 function getDateTime() {
-  if (!props.date) console.log(route.path)
   return new Date(props.date.time).toISOString()
 }
 </script>

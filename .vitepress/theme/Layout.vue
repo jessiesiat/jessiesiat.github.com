@@ -17,7 +17,7 @@ const { page, frontmatter } = useData()
           href="/" 
           :class="[route.path == '/' ? 'text-gray-700' : 'text-gray-600']"
           class="text-lg hover:text-gray-700 dark:hover:text-gray-200">
-          Home
+          Posts
         </a>
         <a
           href="/about.html"
