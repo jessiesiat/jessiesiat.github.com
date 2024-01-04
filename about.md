@@ -6,7 +6,7 @@ page: true
 
 ## Hello, my name is Jessie Cris Siat.
 
-I'm a software developer. I work as a full stack engineer in a bio science company.
+I'm a software developer. I work as a full stack engineer in a neurocognitive AI company 🤯.
 
 I love open source, building stuff and keeping up to date with tech. I live in Manila with my beautiful wife and three of our daughters. 
 
@@ -17,15 +17,9 @@ Online, you can find me on this places:
 - [LinkedIn](https://www.linkedin.com/in/jessie-siat-2285823b/)
 - jcris.siat@gmail.com
 
----
-
-*My employment status with my current employer will end by December 2023 because of rif (3rd), so I will be available for a job starting next year.*
-
----
-
 ### Projects I've done in the past
 
-*(All of the projects below are mostly done by yours truly while working with my previous employers, just to showcase the stuff I build and experience :blush:)*
+*(All of the projects below are mostly done by yours truly while working with my previous employers, just to showcase the stuff I build and experience 🙂)*
 
 ---
 
