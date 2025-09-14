@@ -1,5 +1,5 @@
 ---
 title: Posts
-subtext: My nerdy stuff as a programmer.
+subtext: My technical musings and programming adventures.
 index: true
 ---

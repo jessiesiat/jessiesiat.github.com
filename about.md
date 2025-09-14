@@ -6,9 +6,22 @@ page: true
 
 ## Hello, my name is Jessie Cris Siat.
 
-I'm a software developer. I work as a full stack engineer in a neurocognitive AI company 🤯.
+I'm passionate about open source software, enjoy creating new things, and stay current with the latest technology trends.
 
-I love open source, building stuff and keeping up to date with tech. I live in Manila with my beautiful wife and three of our daughters. 
+Currently, I'm diving deep into Artificial Intelligence and Machine Learning, exploring how these technologies can solve real-world problems. I'm particularly interested in:
+
+- Building AI-powered applications and tools
+- Experimenting with Large Language Models (LLMs)
+- Studying prompt engineering techniques
+- Exploring AI's potential in product development
+
+I also spend time brainstorming and validating product ideas, with a focus on:
+
+- SaaS solutions that solve specific business problems
+- Tools that improve developer productivity
+- Applications that leverage AI capabilities
+- Products that enhance user experience and workflow automation
+
 
 Online, you can find me on this places:
 
