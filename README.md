@@ -5,9 +5,11 @@ My personal blog
 
 ## Build the site and make it available on a local server.
 
-  bundle
+  `export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"`
 
-  bundle exec jekyll serve
+  `bundle`
+  
+  `bundle exec jekyll serve`
 
 ### Theme
 
