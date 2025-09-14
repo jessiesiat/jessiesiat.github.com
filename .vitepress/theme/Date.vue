@@ -5,12 +5,12 @@ const route = useRoute()
 const props = defineProps<{ date: Post['date'] }>()
 
 function getDateTime() {
-  return new Date(props.date.time).toISOString()
+  return props.date?.time ? new Date(props.date.time).toISOString() : ''
 }
 </script>
 
 <template>
-  <dl>
+  <dl v-if="date">
     <dt class="sr-only">Published on</dt>
     <dd class="text-base leading-6 font-medium text-gray-500 dark:text-gray-300">
       <time :datetime="getDateTime()">{{ date.string }}</time>
